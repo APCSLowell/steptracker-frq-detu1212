@@ -5,35 +5,36 @@ public class StepTracker
  private int totalSteps;
  private int numDays;
  private int numActiveDays;
- public stepTracker(int threshold)
+ public StepTracker(int threshold)
  {
-  minSteps = threshold;
-  totalSteps = 0;
-  numDays = 0;
-  numActiveDays = 0;
-} 
+ minSteps = threshold;
+ totalSteps = 0;
+ numDays = 0;
+ numActiveDays = 0;
+ }
  public void addDailySteps(int steps)
  {
-  totalSteps += steps;
-  numDays++;
-  if (steps >= minSteps)
-  {
-   numActiveDays++;
-  }
+ totalSteps += steps;
+ numDays++;
+ if (steps >= minSteps)
+ {
+ numActiveDays++;
+ }
+ }
+ public int activeDays()
+ {
+ return numActiveDays;
  }
  public double averageSteps()
  {
-  return numActiveDays;
- }
- public double averageSTeps()
+ if (numDays == 0)
  {
-  if (numDays == 0)
-  {
-   return 0.0;
-  }
-  else
-  {
-   return (double)totalSteps/numDays;
-  }
+ return 0.0;
+ }
+ else
+ {
+ return (double) totalSteps / numDays;
+ }
+ }
  }
 
